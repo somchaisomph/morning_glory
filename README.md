@@ -20,5 +20,6 @@
 <h2>Class FaceRecognizer</h2>
 <h3>methods</h3>
 
-<h3>FaceRecognizer.set_config</h3>
+<h4>FaceRecognizer.set_config(Config)</h4>
+<p>รับ Config instance มาใช้ภายใน</p>
 
