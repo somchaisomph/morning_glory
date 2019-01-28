@@ -1,7 +1,8 @@
 # Morning Glory
-<b>What is it.</b>
+<h3>คืออะไร ?</h3>
 <p>A pure python face recognition library designed for Raspberry Pi.</p>
-
+<br/>
+<h1>API</h1>
 <h2>Class Config</h2>
 <p>จัดเก็บ parameter สำคํญในการทำงาน</p>
 <h3>attributes</h3>
