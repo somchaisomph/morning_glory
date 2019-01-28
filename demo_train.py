@@ -1,16 +1,18 @@
-from morning_glory import  *
 import numpy as np
-import time
+from morning_glory import  *
 
-Config.training_set_dir = './training'
-Config.output_size = 41
-epoch = 100
+conf = Config()
+conf.training_set_dir = '../../../orl_faces'
+conf.num_image = 8
+conf.image_subfix = 'pgm'
+conf.image_shape = [112,92]
+conf.output_size = 40
+conf.hidden_layers = 128
+conf.learning_rate = 0.001
+
 recognizer = FaceRecognizer()
+recognizer.set_config(conf)
 recognizer.init_parameters()
-start_time = time.time()
-recognizer.train(epoch=epoch)
-total_time = time.time() - start_time
-recognizer.save_parameters('face_params_2019_01_28.pickle')
-print("Done, time spent = {} for {} epoches".format(total_time,epoch))
+recognizer.train(epoch=100,silence=True)
 
 
