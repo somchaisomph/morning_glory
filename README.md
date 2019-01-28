@@ -23,3 +23,5 @@
 <h4>FaceRecognizer.set_config(Config)</h4>
 <p>รับ Config instance มาใช้ภายใน</p>
 
+<h4>FaceRecognizer.save_parameters(path)</h4>
+<p>บันทึก weight parameters ลงไฟล์โดยใช้ <a href='https://docs.python.org/3/library/pickle.html'>pickle module</a></p>
