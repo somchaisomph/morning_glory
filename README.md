@@ -50,7 +50,6 @@ reg = FaceRecognizer()
 reg.load_parameters("../param/param_file.pickle")
 </pre>
 <br />
-
 <h4>FaceRecognizer.init_parameters()</h4>
 <p>กำหนดค่าและโครงสร้างข้อมูลให้กับ weight parameters ต้องเรียกใช้ทุกครั้งก่อนทำการ training หรือหลังจากใช้ set_config(Config)</p>
 <pre>
@@ -58,9 +57,23 @@ reg = FaceRecognizer()
 reg.init_parameters()
 </pre>
 <br/>
-<h4>FaceRecognizer.train(epoch=100,alpha=0.001,silence=False)</h4>
-<p>นำเอาค่า weight parameters ที่บันทึกไว้กลับมาใช้ </p>
+<h4>FaceRecognizer.train(epoch=100,silence=False)</h4>
+<p>train ตัวแบบ </p>
+<ul>
+	<li>epoch : จำนวนรอบของการ train ค่า default คือ  100 รอบ</li>
+	<li>silence : Flag สำหรับการพิมพ์หรือไม่พิมพ์รายงานผล ค่า default คือ False</li>
+</ul>
+<br />
+<h4>FaceRecognizer.predict()</h4>
+<p>กำหนดค่าและโครงสร้างข้อมูลให้กับ weight parameters ต้องเรียกใช้ทุกครั้งก่อนทำการ training หรือหลังจากใช้ set_config(Config)</p>
 <pre>
 reg = FaceRecognizer()
-reg.load_parameters("../param/param_file.pickle")
+reg.init_parameters()
 </pre>
+<br/>
+<h4>FaceRecognizer.train(epoch=100,silence=False)</h4>
+<p>train ตัวแบบ </p>
+<ul>
+	<li>epoch : จำนวนรอบของการ train ค่า default คือ  100 รอบ</li>
+	<li>silence : Flag สำหรับการพิมพ์หรือไม่พิมพ์รายงานผล ค่า default คือ False</li>
+</ul>
