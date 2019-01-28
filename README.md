@@ -15,3 +15,10 @@
 		<li>hidden_layers : จำนวนของ node ใน hidden layer ค่า default คือ 128 การกำหนดค่าเกินไปอาจไม่พอให้ตัวแบบได้เรียนรู้ความแตกต่างระหว่างใบหน้า หากมากเกินไปจะใช้ทรัพยากรมากขึ้น </li>
 		<li>learning_rate : ค่าอัตราเร็วของการเรียนรู้ ค่า default คือ 0.001</li>
  </ul>
+
+<br />
+<h2>Class FaceRecognizer</h2>
+<h3>methods</h3>
+
+<h3>FaceRecognizer.set_config</h3>
+
