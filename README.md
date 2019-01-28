@@ -21,7 +21,7 @@
 <h3>methods</h3>
 
 <h4>FaceRecognizer.set_config(Config)</h4>
-<p>รับ Config instance มาใช้ภายใน</p>
+<p>รับ Config instance มาใช้ภายใน จะเรียกใช้เฉพาะในขั้นตอนการเริ่ม training ครั้งแรกหรือการสร้างตัวแบบใหม่ หลังจากที่ set_config() แล้วต้องเรียก init_parameter() ด้วยเสมอ เพราะข้อมูลใน Config จะมีผลต่อโครงสร้างของ weight parameters</p>
 <pre>
 conf = Config()
 conf.training_set_dir = '../../../orl_faces'
@@ -38,3 +38,29 @@ reg.set_config(conf)
 <br />
 <h4>FaceRecognizer.save_parameters(path)</h4>
 <p>บันทึก weight parameters ลงไฟล์โดยใช้ <a href='https://docs.python.org/3/library/pickle.html'>pickle module</a></p>
+<pre>
+reg = FaceRecognizer()
+reg.save_parameters("../param/param_file.pickle")
+</pre>
+<br/>
+<h4>FaceRecognizer.load_parameters(path)</h4>
+<p>นำเอาค่า weight parameters ที่บันทึกไว้กลับมาใช้ </p>
+<pre>
+reg = FaceRecognizer()
+reg.load_parameters("../param/param_file.pickle")
+</pre>
+<br />
+
+<h4>FaceRecognizer.init_parameters()</h4>
+<p>กำหนดค่าและโครงสร้างข้อมูลให้กับ weight parameters ต้องเรียกใช้ทุกครั้งก่อนทำการ training หรือหลังจากใช้ set_config(Config)</p>
+<pre>
+reg = FaceRecognizer()
+reg.init_parameters()
+</pre>
+<br/>
+<h4>FaceRecognizer.train(epoch=100,alpha=0.001,silence=False)</h4>
+<p>นำเอาค่า weight parameters ที่บันทึกไว้กลับมาใช้ </p>
+<pre>
+reg = FaceRecognizer()
+reg.load_parameters("../param/param_file.pickle")
+</pre>
