@@ -1,8 +1,18 @@
 <h1> <img src="https://i.imgur.com/oLsbS9g.png"></h1>
 <p>Python library สำหรับ face recognition แบบง่ายและใช้งานกับ Raspberry Pi (ทดสอบใช้งานบน Raspberry Pi 3 model B+ ติดตั้ง Raspbian Stretch released 2018-11-13</p>
 <br/>
-<h2>ขั้นตอนการทำงานของระบบ</h2>
-<img src="https://i.imgur.com/w08Ueia.png" />
+<h2>ขั้นตอนการทำงานโดยทั่วไป</h2>
+<img src="https://i.imgur.com/8Riuudi.png" />
+
+<h2>Software Requirement</h2>
+<ul>
+	<li>Numpy รุ่น 1.13.3 หรือใหม่กว่า รุ่นนี้ติดตั้งมาแล้วใน Raspbian ไม่จำเป็นต้องติดตั้งเพิ่ม</li>
+	<li>Pillow (https://pillow.readthedocs.io/en/stable/)
+	<li>Python 3.5 หรือใหม่กว่า </pi>	
+</ul>
+<br/>
+<h2>การติดตั้ง</h2>
+<p> เพียงดาวน์โหลด morning_glory.so ใน download แล้วนำไปวางไว้ที่ /usr/lib/python3/dist-packages/ หรือใน project ที่ใช้งาน ดูตัวอย่างได้จาก demo</p>
 
 <h1>API</h1>
 <h2>Class Config</h2>
@@ -20,10 +30,10 @@
 <p><b>หมายเหตุ</b> </p>
 <p>รูปแบบการกำหนดขนาดของ image shape อ้างอิงรูปแบบของ Numpy ซึ่งเป็นแบบ row-major ดังนั้นต้องระวังเรื่องนี้ในกรณีที่ภาพใบหน้าที่จะนำมาใข้ในการ training หรือ query ระบบ เพราะซอฟต์แวร์ image editor บางตัวอาจใช้รูปแบบข้อมุลที่ต่างไป </p>
 <br />
-<h2>Class FaceRecognizer</h2>
+<h2>Class Recognizer</h2>
 <h3>methods</h3>
 
-<h4>FaceRecognizer.set_config(Config)</h4>
+<h4>Recognizer.set_config(Config)</h4>
 <p>รับ Config instance มาใช้ภายใน จะเรียกใช้เฉพาะในขั้นตอนการเริ่ม training ครั้งแรกหรือการสร้างตัวแบบใหม่ หลังจากที่ set_config() แล้วต้องเรียก init_parameter() ด้วยเสมอ เพราะข้อมูลใน Config จะมีผลต่อโครงสร้างของ weight parameters</p>
 <pre>
 conf = Config()
@@ -35,32 +45,32 @@ conf.output_size = 40
 conf.hidden_layers = 128
 conf.learning_rate = 0.001
 
-reg = FaceRecognizer()
+reg = Recognizer()
 reg.set_config(conf)
 </pre>
 <br />
-<h4>FaceRecognizer.save_parameters(path)</h4>
+<h4>Recognizer.save_parameters(path)</h4>
 <p>บันทึก weight parameters ลงไฟล์โดยใช้ <a href='https://docs.python.org/3/library/pickle.html'>pickle module</a></p>
 <pre>
-reg = FaceRecognizer()
+reg = Recognizer()
 reg.save_parameters("../param/param_file.pickle")
 </pre>
 <br/>
-<h4>FaceRecognizer.load_parameters(path)</h4>
+<h4>Recognizer.load_parameters(path)</h4>
 <p>นำเอาค่า weight parameters ที่บันทึกไว้กลับมาใช้ </p>
 <pre>
-reg = FaceRecognizer()
+reg = Recognizer()
 reg.load_parameters("../param/param_file.pickle")
 </pre>
 <br />
-<h4>FaceRecognizer.init_parameters()</h4>
+<h4>Recognizer.init_parameters()</h4>
 <p>กำหนดค่าและโครงสร้างข้อมูลให้กับ weight parameters ต้องเรียกใช้ทุกครั้งก่อนทำการ training หรือหลังจากใช้ set_config(Config)</p>
 <pre>
-reg = FaceRecognizer()
+reg = Recognizer()
 reg.init_parameters()
 </pre>
 <br/>
-<h4>FaceRecognizer.train(epoch=100,silence=False)</h4>
+<h4>Recognizer.train(epoch=100,silence=False)</h4>
 <p>train ตัวแบบ </p>
 <ul>
 	<li>epoch : จำนวนรอบของการ train ค่า default คือ  100 รอบ</li>
@@ -68,17 +78,17 @@ reg.init_parameters()
 </ul>
 <br />
 
-<h4>FaceRecognizer.train(epoch=500,silence=False)</h4>
+<h4>Recognizer.train(epoch=500,silence=False)</h4>
 <p>train ตัวแบบ </p>
 <ul>
 	<li>epoch : จำนวนรอบของการ train ค่า default คือ  500 รอบ</li>
 	<li>silence : Flag สำหรับการพิมพ์หรือไม่พิมพ์รายงานผล ค่า default คือ False</li>
 </ul>
 <br />
-<h4>FaceRecognizer.predict(numpy.ndarray)</h4>
+<h4>Recognizer.predict(numpy.ndarray)</h4>
 <p>รับค่า Numpy ndarray ที่เป็นตัวแทนของภาพใบหน้าที่ต้องการสอบถามแล้วคำนวณค่าที่ได้จาก function นี้คือ array ของ ค่าความน่าจะเป็นที่ใบหน้าที่ผ่านการทำ training จะตรงกับภาพใบหน้าที่นำมาสอบถาม </p>
 <pre>
-recognizer = FaceRecognizer()
+recognizer = Recognizer()
 recognizer.load_parameters('parameters.pickle')
 qry = Image.open('/orl_faces/s3/1.pgm')
 _np_img = np.array(qry)
