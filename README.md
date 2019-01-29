@@ -12,7 +12,7 @@
 </ul>
 <br/>
 <h2>การติดตั้ง</h2>
-<p> เพียงดาวน์โหลด morning_glory.so ใน download แล้วนำไปวางไว้ที่ /usr/lib/python3/dist-packages/ หรือใน project ที่ใช้งาน ดูตัวอย่างได้จาก demos</p>
+<p> เพียงดาวน์โหลด <a href="https://drive.google.com/open?id=1CUBNtPAyL5juHUOPEcguCSn3dzahBXMI"> morning_glory.so </a>  แล้วนำไปวางไว้ที่ /usr/lib/python3/dist-packages/ หรือใน project ที่ใช้งาน ดูตัวอย่างได้จาก demos</p>
 
 <h2>Training</h2>
 <p>1. เพื่อให้เข้าใจขั้นตอนการทำงาน อาจเริ่มต้นด้วย dataset สำเร็จรูป เช่น <a href='https://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html'>AT&T Facedatabase </a> หรือแหล่งอื่น http://face-rec.org/databases/</p>
