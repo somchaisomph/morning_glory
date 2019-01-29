@@ -1,4 +1,3 @@
-<img src='https://drive.google.com/file/d/1Xkvw4lszK_N8dcIoZay6CD9xShEaev2a/view?usp=sharing'>
 # Morning Glory
 <p>Python library สำหรับ face recognition แบบง่ายและใช้งานกับ Raspberry Pi (ทดสอบใช้งานบน Raspberry Pi 3 model B+ ติดตั้ง Raspbian Stretch released 2018-11-13</p>
 <br/>
@@ -66,13 +65,7 @@ reg.init_parameters()
 	<li>silence : Flag สำหรับการพิมพ์หรือไม่พิมพ์รายงานผล ค่า default คือ False</li>
 </ul>
 <br />
-<h4>FaceRecognizer.predict(numpy.ndarray)</h4>
-<p>กำหนดค่าและโครงสร้างข้อมูลให้กับ weight parameters ต้องเรียกใช้ทุกครั้งก่อนทำการ training หรือหลังจากใช้ set_config(Config)</p>
-<pre>
-reg = FaceRecognizer()
-reg.init_parameters()
-</pre>
-<br/>
+
 <h4>FaceRecognizer.train(epoch=500,silence=False)</h4>
 <p>train ตัวแบบ </p>
 <ul>
@@ -80,9 +73,13 @@ reg.init_parameters()
 	<li>silence : Flag สำหรับการพิมพ์หรือไม่พิมพ์รายงานผล ค่า default คือ False</li>
 </ul>
 <br />
-<h4>FaceRecognizer.predict()</h4>
-<p>กำหนดค่าและโครงสร้างข้อมูลให้กับ weight parameters ต้องเรียกใช้ทุกครั้งก่อนทำการ training หรือหลังจากใช้ set_config(Config)</p>
+<h4>FaceRecognizer.predict(numpy.ndarray)</h4>
+<p>รับค่า Numpy ndarray ที่เป็นตัวแทนของภาพใบหน้าที่ต้องการสอบถามแล้วคำนวณค่าที่ได้จาก function นี้คือ array ของ ค่าความน่าจะเป็นที่ใบหน้าที่ผ่านการทำ training จะตรงกับภาพใบหน้าที่นำมาสอบถาม </p>
 <pre>
-reg = FaceRecognizer()
-reg.init_parameters()
+recognizer = FaceRecognizer()
+recognizer.load_parameters('parameters.pickle')
+qry = Image.open('/orl_faces/s3/1.pgm')
+_np_img = np.array(qry)
+pred = recognizer.predict(_np_img)
+print(np.argmax(pred))
 </pre>
