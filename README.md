@@ -12,7 +12,7 @@
 </ul>
 <br/>
 <h2>การติดตั้ง</h2>
-<p> เพียงดาวน์โหลด morning_glory.so ใน download แล้วนำไปวางไว้ที่ /usr/lib/python3/dist-packages/ หรือใน project ที่ใช้งาน ดูตัวอย่างได้จาก demo</p>
+<p> เพียงดาวน์โหลด morning_glory.so ใน download แล้วนำไปวางไว้ที่ /usr/lib/python3/dist-packages/ หรือใน project ที่ใช้งาน ดูตัวอย่างได้จาก demos</p>
 
 <h1>API</h1>
 <h2>Class Config</h2>
