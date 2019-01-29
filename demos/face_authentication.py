@@ -54,6 +54,7 @@ pygame.init()
 pygame.camera.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode(WINDOW)
+pygame.display.set_caption("Morning Glory Face Authentication ")
 
 
 # 2) -- get camera
@@ -64,14 +65,13 @@ camera.start()
 # 3) -- grab first iamge
 img = camera.get_image()
 
-#screen = pygame.display.set_mode( ( WIDTH, HEIGHT ) )
-pygame.display.set_caption("Morning Glory Face Authentication ")
-
+# 4) -- define area for capture data
 rect = [(center[0]-IMAGE[0]*SCALE//2,center[1]-IMAGE[1]*SCALE//2),
 		(center[0]+IMAGE[0]*SCALE//2,center[1]-IMAGE[1]*SCALE//2),
 		(center[0]+IMAGE[0]*SCALE//2,center[1]+IMAGE[1]*SCALE//2),
 		(center[0]-IMAGE[0]*SCALE//2,center[1]+IMAGE[1]*SCALE//2)]
 
+# 5) -- utilities
 def rgb2gray(rgb):
 	r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
 	gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
