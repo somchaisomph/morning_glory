@@ -14,6 +14,16 @@
 <h2>การติดตั้ง</h2>
 <p> เพียงดาวน์โหลด morning_glory.so ใน download แล้วนำไปวางไว้ที่ /usr/lib/python3/dist-packages/ หรือใน project ที่ใช้งาน ดูตัวอย่างได้จาก demos</p>
 
+<h2>Training</h2>
+<p>1. เพื่อให้เข้าใจขั้นตอนการทำงาน อาจเริ่มต้นด้วย dataset สำเร็จรูป เช่น <a href='https://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html'>AT&T Facedatabase </a> หรือแหล่งอื่น http://face-rec.org/databases/</p>
+<p>2. จัดโครงสร้างของแฟ้มภาพดังภาพ</p>
+<img src='https://i.imgur.com/PqufhZO.png' />
+ชื่อ Folder ระดับบนสุดจะใช้ใดก็ได้ เพราะในการอ้างอิงจุดเริ่มต้นให้โปรแกรมได้หาเจอเท่านั้น แต่ Folder ย่อยที่บรรจุแฟ้มภาพต้องตั้งชื่อดังนี้
+<ul>
+	<li>อักษรตัวแรกต้องเป็น "s" </li>
+	<li>ตามด้วย running number เริ่มต้นจาก 1,2,3,...
+</ul>
+
 <h1>API</h1>
 <h2>Class Config</h2>
 <p>จัดเก็บ parameter สำคัญในการทำงาน training </p>
