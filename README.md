@@ -1,4 +1,4 @@
-# Morning Glory <img src='https://imgur.com/a/z2C9cg8'>
+# Morning Glory <img src='https://imgur.com/oLsbS9g'>
 <p>Python library สำหรับ face recognition แบบง่ายและใช้งานกับ Raspberry Pi (ทดสอบใช้งานบน Raspberry Pi 3 model B+ ติดตั้ง Raspbian Stretch released 2018-11-13</p>
 <br/>
 
