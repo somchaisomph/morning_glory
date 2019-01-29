@@ -1,5 +1,5 @@
 import numpy as np
-from morning_glory import Config,FaceRecognizer
+from morning_glory import Config,Recognizer
 
 conf = Config()
 conf.training_set_dir = '../../../orl_faces'
@@ -10,7 +10,7 @@ conf.output_size = 40
 conf.hidden_layers = 128
 conf.learning_rate = 0.001
 
-recognizer = FaceRecognizer()
+recognizer = Recognizer()
 recognizer.set_config(conf)
 recognizer.init_parameters()
 recognizer.train(epoch=10,silence=False)
