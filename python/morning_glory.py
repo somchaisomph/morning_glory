@@ -103,7 +103,7 @@ class Helper():
         return file_list
 
 
-class RNN_FaceRecognizer():
+class Recognizer():
     def __init__(self):
         self.OUTPUT_SIZE = Config.output_size
         self.HIDDEN = 128
@@ -199,6 +199,7 @@ class RNN_FaceRecognizer():
         
         for e in range(epoch):
             for p in range(Config.num_image ):
+                # Forward 
                 X, Y = Helper.get_training_data(p,folder_list)
                 Xt = X.transpose(1,0,2)
                 caches, states = self.LSTM_Cell(Xt)    
