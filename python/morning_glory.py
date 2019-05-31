@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 # -- By Somchai Somphadung
 # -- Good idea from http://colah.github.io/posts/2015-08-Understanding-LSTMs/
-# -- updated May 31th 2019
+# -- updated 2019-05-31
 
 class Config():
     training_set_dir = '../faces/att/'
